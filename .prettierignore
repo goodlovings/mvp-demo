@@ -1,0 +1,9 @@
+# Ignore artifacts:
+src/assets/*
+
+# # Ignore all Picture files:
+*.png
+*.gif
+*.svg
+*.jpg
+*jpeg

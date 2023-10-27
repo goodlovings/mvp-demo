@@ -1,0 +1,58 @@
+{
+  "name": "vite-js-template",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --host",
+    "dev:mock": "VITE_USE_MOCK=true vite --mode mock",
+    "dev:proxy": "VITE_USE_PROXY=true PORT=3001 vite",
+    "build": "vite build",
+    "buildnohash": "cross-env NO_HASH=true vite build",
+    "preview": "vite preview --port 4173",
+    "test:unit": "vitest --environment jsdom",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "lint": "eslint --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "axios": "^1.2.2",
+    "drawflow": "^0.0.59",
+    "element-plus": "^2.3.1",
+    "less": "^4.1.3",
+    "vant": "^3.6.2",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@vitejs/plugin-legacy": "^3.0.1",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.32.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "mockjs": "^1.1.0",
+    "postcss-pxtorem": "^6.0.0",
+    "prettier": "^2.8.3",
+    "unplugin-auto-import": "^0.12.1",
+    "unplugin-vue-components": "^0.22.12",
+    "vconsole": "^3.15.0",
+    "vite": "^4.0.0",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-mock": "^2.9.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**": [
+      "prettier --write",
+      "npm run lint"
+    ]
+  }
+}

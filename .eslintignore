@@ -1,0 +1,12 @@
+
+git_hooks/
+scripts/
+config/
+src/assets/*
+*.css
+mocks/
+*.png
+*.gif
+*.svg
+*.jpg
+*jpeg

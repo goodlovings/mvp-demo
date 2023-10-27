@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# 进行图片压缩
+. ./git_hooks/tiny-imgs.sh
+
+npm run lint-staged
