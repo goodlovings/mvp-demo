@@ -20,6 +20,27 @@ const router = createRouter({
       },
       component: () => import("@/views/drawflow/index.vue"),
     },
+    {
+      path: "/deviceOrientation",
+      name: "deviceOrientation",
+      meta: {
+        title: "deviceorientation",
+      },
+      component: () => import("@/views/deviceOrientation/index.vue"),
+    },
+    {
+      path: "/3d",
+      children: [
+        {
+          path: "pic",
+          name: "pic",
+          meta: {
+            title: "3dpic",
+          },
+          component: () => import("@/views/3d/pic.vue"),
+        },
+      ],
+    },
   ],
 });
 
