@@ -39,6 +39,14 @@ const router = createRouter({
           },
           component: () => import("@/views/3d/pic.vue"),
         },
+        {
+          path: "page",
+          name: "page",
+          meta: {
+            title: "3dpage",
+          },
+          component: () => import("@/views/3d/page.vue"),
+        },
       ],
     },
   ],
