@@ -15,70 +15,10 @@
   </head>
   <body>
     <script>
-      var device = {
-        timer: null,
-        opt: {},
-        init: function (t) {
-          this.opt.frame = t.frame || 750, this.opt.ratio = t.ratio || 100, this.opt.maxWidth = t.maxWidth || 480,
-            this.bindEvents(), this.setSize(), this.osInfo()
-        },
-        setSize: function () {
-          var t = document.documentElement,
-            e = parseInt(t.clientWidth),
-            i = parseInt(t.clientHeight);
-          baseFont = e / this.opt.frame * this.opt.ratio, baseFont = (e > this.opt.maxWidth ? this.opt.maxWidth : e) /
-            this.opt.frame * this.opt.ratio, t.style.fontSize = baseFont + "px", i / e <= 1.625 ? t.classList.add(
-              "low") : t.classList.contains("low") && t.classList.remove("low")
-        },
-        bindEvents: function () {
-          var t = this;
-          window.addEventListener("resize", function () {
-            t.timer && clearTimeout(t.timer), t.timer = setTimeout(function () {
-              t.setSize()
-            }, 300, !1)
-          })
-        },
-        osInfo: function () {
-          var t = document.documentElement,
-            e = navigator.userAgent,
-            i = e.indexOf("Android") > -1 || e.indexOf("Adr") > -1,
-            s = !!e.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
-            o = parseInt(window.devicePixelRatio),
-            n = {};
-          if (s) {
-            t.setAttribute("data-os", "iOS"), t.setAttribute("data-dpr", o);
-            var a = e.match(/OS (\d+)_(\d+)_?(\d+)?/);
-            n = {
-              os: "iOS",
-              version: parseInt(a[1], 10) + "." + parseInt(a[2], 10) + "." + parseInt(a[3] || 0, 10)
-            }
-          } else if (i) {
-            t.setAttribute("data-os", "Android"), o = o >= 3 ? 3 : o >= 2 ? 2 : 1, t.setAttribute("data-dpr", o);
-            var a = e.match(/Android\s([0-9\.]*)/);
-            n = {
-              os: "Android",
-              version: a[1]
-            }
-          } else n = {
-            os: "desktop",
-            version: "desktop"
-          };
-          return n
-        }
-      };
-      device.init({});
     </script>
     <div id="app">
       <div id="version-tip" style="height: 90vh;font-size: 16px;justify-content: center;align-items: center;display: none;">当前系统版本过低，请升级！</div>
     </div>
-    <script>
-      var domApp = document.getElementById('version-tip');
-      var sysInfo = device.osInfo();
-      // 判断ios版本 || Android版本 (低版本)
-      if((sysInfo.os === 'iOS' && parseFloat(sysInfo.version) <= 10.2) || (sysInfo.os === 'Android' && parseFloat(sysInfo.version) <= 8)) {
-        domApp.style.display = "flex"
-      }
-    </script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

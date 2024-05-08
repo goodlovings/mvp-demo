@@ -1,3 +1,11 @@
+/*
+ * @Author: haolian
+ * @Date: 2023-10-27 16:06:28
+ * @LastEditors: haolian
+ * @LastEditTime: 2024-05-08 12:36:38
+ * @Description: Do not edit
+ * @FilePath: /mvp-demo/src/router/index.js
+ */
 import { createRouter, createWebHistory } from "vue-router";
 import { beforeRouter, afterRouter } from "./routerConfig";
 
@@ -19,6 +27,22 @@ const router = createRouter({
         title: "drawflow",
       },
       component: () => import("@/views/drawflow/index.vue"),
+    },
+    {
+      path: "/vueflow",
+      name: "vueflow",
+      meta: {
+        title: "vueflow",
+      },
+      component: () => import("@/views/vueflow/index.vue"),
+    },
+    {
+      path: "/vueflow2",
+      name: "vueflow2",
+      meta: {
+        title: "vueflow2",
+      },
+      component: () => import("@/views/vueflow2/index.vue"),
     },
     {
       path: "/deviceOrientation",
@@ -48,6 +72,54 @@ const router = createRouter({
           component: () => import("@/views/3d/page.vue"),
         },
       ],
+    },
+    {
+      path: "/qiniu",
+      name: "qiniu",
+      meta: {
+        title: "七牛",
+      },
+      component: () => import("@/views/qiniu/index.vue"),
+    },
+    {
+      path: "/blur",
+      name: "blur",
+      meta: {
+        title: "blur",
+      },
+      component: () => import("@/views/blur/index.vue"),
+    },
+    {
+      path: "/iphone",
+      name: "iphone",
+      meta: {
+        title: "iphone",
+      },
+      component: () => import("@/views/blur/iphone.vue"),
+    },
+    {
+      path: "/ipad",
+      name: "ipad",
+      meta: {
+        title: "ipad",
+      },
+      component: () => import("@/views/blur/ipad.vue"),
+    },
+    {
+      path: "/mac",
+      name: "mac",
+      meta: {
+        title: "mac",
+      },
+      component: () => import("@/views/blur/mac.vue"),
+    },
+    {
+      path: "/imac",
+      name: "imac",
+      meta: {
+        title: "imac",
+      },
+      component: () => import("@/views/blur/imac.vue"),
     },
   ],
 });

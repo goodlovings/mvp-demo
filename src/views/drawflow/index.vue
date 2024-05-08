@@ -9,7 +9,7 @@
   </el-container>
   <el-drawer v-model="drawer" title="I am the title" :with-header="false" @closed="update">
     回复语：
-    <el-input v-model="curDrawerData.data.msg" :rows="4" type="textarea" placeholder="Please input" />
+    <el-input v-model="val.msg" :rows="4" type="textarea" placeholder="Please input" />
   </el-drawer>
 </template>
 
@@ -65,22 +65,28 @@ onMounted(() => {
     }
   });
 });
+let val = ref(
+  { msg: "nihao", gender: 'male' }
+)
 
 const addMsg = () => {
-  editor.value.registerNode("message", message);
-  editor.value.addNode("message", 1, 1, 150, 300, "", { msg: "77777" }, "message", "vue");
+  editor.value.registerNode("message", message, val.value);
+  editor.value.addNode("message", 1, 1, 150, 300, "", val.value, "message", "vue");
   data.value = editor.value.export();
   console.log(78, data.value);
 };
 const update = () => {
-  editor.value.updateNodeDataFromId(curNodeId.value, { ...curDrawerData.value.data });
+  console.log(8887, curDrawerData.value.data);
+  curDrawerData.value.data = val.value
+  console.log(88, curDrawerData.value, val.value);
+  editor.value.updateNodeDataFromId(curNodeId.value, { ...curDrawerData.value });
 };
 </script>
 
 <style lang="less" scoped>
 #drawflow {
   height: 90vh;
-  width: 80vw;
+  width: 100vw;
   border: 2px solid #999;
 }
 </style>

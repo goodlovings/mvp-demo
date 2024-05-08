@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "bd";
+    src: url("bd.eot"); /* IE9 */
+    src: url("bd.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    
+    url("bd.woff") format("woff"), /* chrome、firefox */
+    url("bd.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    
+    url("bd.svg#bd") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+
